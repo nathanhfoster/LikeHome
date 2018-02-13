@@ -27,11 +27,6 @@ class App extends Component {
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
-          <Nav>
-            <NavItem>
-              <Link to="/">Explore</Link>
-            </NavItem>
-          </Nav>
           <Nav pullRight>
             <NavItem>
               <Link to="/reservations">Reservations</Link>
@@ -40,23 +35,14 @@ class App extends Component {
               <Link to="/favorites">Favorites</Link>
             </NavItem>
             <NavItem>
-              <Link to="/rewards">Rewards</Link>
-            </NavItem>
-            <NavItem>
               <Link to="/account">Account</Link>
             </NavItem>
           </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <header className="App-header">
-
-
-
-        </header>
-        <Route exact path="/" component={Explore}/>
+  
         <Route path="/reservations" component={Reservation}/>
         <Route path="/favorites" component={Favorites}/>
-        <Route path="/rewards" component={Rewards}/>
         <Route path="/account" component={Account}/>
       </div>
       </Router>
@@ -64,19 +50,5 @@ class App extends Component {
     );
   }
 }
-
-const Explore = () => (
-  <div>
-    <h1>Explore</h1>
-  </div>
-
-);
-
-const Rewards = () => (
-  <div>
-    <h1>Rewards</h1>
-  </div>
-
-);
 
 export default App;
