@@ -198,7 +198,7 @@ module.exports = {
                     },
                   ],
                 },
-                extractTextPluginOptions
+                
               )
             ),
             // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
