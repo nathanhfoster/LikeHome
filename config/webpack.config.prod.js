@@ -14,7 +14,7 @@ const getClientEnvironment = require('./env');
 
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
  
-const cssFilename = new ExtractTextPlugin({
+const extractSass = new ExtractTextPlugin({
     filename: "[name].[contenthash].css",
     disable: process.env.NODE_ENV === "development"
 });
@@ -47,10 +47,7 @@ if (env.stringified['process.env'].NODE_ENV !== '"production"') {
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
 // However, our output is structured with css, js and media folders.
 // To have this structure working with relative paths, we have to use custom options.
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
-  ? // Making sure that the publicPath goes back to to build folder.
-    { publicPath: Array(cssFilename.split('/').length).join('../') }
-  : {};
+
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -278,9 +275,7 @@ module.exports = {
       sourceMap: shouldUseSourceMap,
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    new ExtractTextPlugin({
-      filename: cssFilename,
-    }),
+  
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
